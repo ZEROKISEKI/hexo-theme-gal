@@ -1,0 +1,21 @@
+menu:
+  # index
+  - title: 首页
+    icon: home
+    url: /
+  # archives
+  - title: 归档
+    icon: archive
+    url: archives
+  # categories
+  - title: 分类
+    icon: categories
+    url: categories
+  # tags
+  - title: 标签
+    icon: tags
+    url: tags
+  # about-me
+  - title: 关于我
+    icon: about
+    url: about-me

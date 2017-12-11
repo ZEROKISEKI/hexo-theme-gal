@@ -1,0 +1,58 @@
+<!-- 前方最多7个 < 1 2 3 4 5 6 -->
+<!-- 前方超过第7页则分为 < 1 ... (n - 3) (n - 2) (n - 1) n, 此时前面为固定的6个 -->
+
+<!-- 后方最多8个 (n + 1) 到 (n + 7) > -->
+<!-- 如果末页和当前页相差超过7, 此时后面为固定的6个, (n + 1) (n + 2) (n + 3) ... total > -->
+
+<% if(page.total > 0) { %>
+<% let num = Math.ceil(site.posts.length / config.index_generator.per_page) %>
+<div id="gal-pagination" class="clearfix">
+    <ul class="pagination pagination-gal">
+        <% if (page.prev > 0) { %>
+        <li class="pagination-gal-index">
+            <a href="<%- url_for(page.prev_link) %>">«</a>
+        </li>
+        <% } %>
+        <% if (page.current > 7) { %>
+        <li class="pagination-gal-index">
+            <span>...</span>
+        </li>
+        <% for(let i = page.current - 3; i < page.current; i++) { %>
+        <li class="pagination-gal-index">
+            <a href="<% if (i === 1) { %><%- url_for() %><% } else { %><%- url_for(`page/${i}`) %> <% } %>"><%= i %></a>
+        </li>
+        <% } %>
+        <% } else { %>
+        <% for(let i = 1; i < page.current; i++) { %>
+        <li class="pagination-gal-index">
+            <a href="<% if (i === 1) { %><%- url_for() %><% } else { %><%- url_for(`page/${i}`) %> <% } %>"><%= i %></a>
+        </li>
+        <% } %>
+        <% } %>
+        <li class="pagination-gal-index current">
+            <span><%= page.current %></span>
+        </li>
+        <% if(page.current + 7 < num) { %>
+        <% for(let i = page.current + 1; i<= page.current + 3; i++) { %>
+        <li class="pagination-gal-index">
+            <a href="<%- url_for(`page/${i}`) %>"><%= i %></a>
+        </li>
+        <% } %>
+        <li class="pagination-gal-index">
+            <span>...</span>
+        </li>
+        <% } else { %>
+        <% for(let i = page.current + 1; i <= num; i++) { %>
+        <li class="pagination-gal-index">
+            <a href="<%- url_for(`page/${i}`) %>"><%= i %></a>
+        </li>
+        <% } %>
+        <% } %>
+        <% if (page.next > 0) { %>
+        <li class="pagination-gal-next">
+            <a href="<%- url_for(page.next_link) %>">»</a>
+        </li>
+        <% } %>
+    </ul>
+</div>
+<% } %>

@@ -1,0 +1,23 @@
+<header class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+            </button>
+            <a href="<%- url_for() %>">
+                <div class="navbar-brand" ></div>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <% theme.menu.forEach(function (m) { %>
+                <li>
+                    <i class="cube-icon cube-icon-<%= m.icon %>" aria-hidden="true"></i>
+                    <a href="<%- url_for(m.url) %>"><%- m.title %></a>
+                </li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</header>

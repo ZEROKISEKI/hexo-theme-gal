@@ -1,0 +1,30 @@
+<%- partial('_partial/head') %>
+<body>
+    <%- partial('_partial/header') %>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-xs-12 col-sm-8 col-lg-8 gal-right">
+                    <%- body %>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4 gal-left">
+                    <%- partial('_partial/sidebar') %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="gal-footer">
+        <%- partial('_partial/footer') %>
+    </footer>
+</body>
+<%- js('js/activate-power-mode.js') %>
+<script>
+	hs.graphicsDir = '/js/highslide/graphics/'
+</script>
+<script>
+	POWERMODE.colorful = true; // make power mode colorful
+	POWERMODE.shake = false; // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+</html>

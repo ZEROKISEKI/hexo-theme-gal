@@ -1,0 +1,4 @@
+<% page.posts.forEach(function (post) { %>
+<%- partial('_partial/post/excerpt', { item: post }) %>
+<% }) %>
+<%- partial('_partial/pagination', { page: page }) %>

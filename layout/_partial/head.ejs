@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="<%= config.author %>">
+    <% if (config.description) { %>
+    <meta name="description" content="<%= config.description %>">
+    <% } %>
+    <% let title = [config.title] %>
+    <% if (page.tag) {
+        title.unshift(`${__('tags')}: ${page.tag}`)
+    } %>
+    <% if (page.category) {
+        title.unshift(`${__('categories')}: ${page.category}`)
+    }%>
+    <% if (page.archive) {
+        title.unshift(`${__('archive_a')}`)
+    }%>
+    <% if (page.title) {
+        title.unshift(`${page.title}`)
+    }%>
+    <title><%= title.join(' | ') %></title>
+
+    <%- css('css/bootstrap.min.css') %>
+    <%- js('js/jquery.min.js') %>
+    <%- js('js/bootstrap.min.js') %>
+    <%- js('js/highslide/highslide.js') %>
+    <%- css('js/highslide/highslide.css') %>
+</head>
