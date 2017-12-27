@@ -42,7 +42,7 @@
                         <img src="<%- item.preview ? item.preview : url_for(`imgs/preview/${theme.default_preview[Math.floor(Math.random() * theme.default_preview.length)]}`)  %>" alt="<%= item.title %>">
                     </div>
                     <div class="info">
-                        <p><%= item.excerpt %></p>
+                        <%- item.excerpt %>
                     </div>
                 </a>
             </div>
@@ -83,9 +83,11 @@
                 </a>
             </p>
         </div>
+        <% if(item.excerpt) { %>
         <div class="alert alert-gal">
-            <%= item.excerpt %>
+            <%- item.excerpt %>
         </div>
+        <% } %>
         <a class="btn btn-danger pull-right read-more btn-block" href="<%- url_for(item.path) %>">
             阅读全文
             <span class="badge">739</span>
