@@ -51,11 +51,11 @@ PS: 第一次加载可能会慢一些, 毕竟图片还是挺多的, 而且有好
     
 # 配置说明
 
-    https://github.com/ZEROKISEKI/hexo-theme-gal.git themes/gal
+    git clone https://github.com/ZEROKISEKI/hexo-theme-gal.git themes/gal
     
     or 
     
-    https://github.com/ZEROKISEKI/hexo-theme-gal.git themes/gal --depth 1
+    git clone https://github.com/ZEROKISEKI/hexo-theme-gal.git themes/gal --depth 1
 
 ## 使用该主题前要安装的东西:
 
@@ -63,13 +63,21 @@ PS: 第一次加载可能会慢一些, 毕竟图片还是挺多的, 而且有好
 
     在你的hexo站点目录(非主题目录)下安装 hexo-renderer-scss
     
-    npm install hexo-renderer-scss --save
+    npm install hexo-renderer-scss --save 
+    
+    or 
+    
+    cnpm install hexo-renderer-scss --save
     
     上面的一步是将.scss样式文件渲染成最后的style.css文件
     
     然后, 在你的hexo站点目录下安装 hexo-generator-json-content
     
     npm install hexo-generator-json-content --save
+    
+    or 
+    
+    cnpm install hexo-generator-json-content --save
     
     接着在hexo站点目录的_config.yml下进行配置:
     
