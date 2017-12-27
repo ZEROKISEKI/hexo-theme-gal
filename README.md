@@ -21,6 +21,7 @@
 我的blog[myau.moe](http://myau.moe)
 
 PS: 第一次加载可能会慢一些, 毕竟图片还是挺多的, 而且有好几个是几百k的, 不过你可以用你自己的图片(迟些搞个资源图片指向cdn空间的把, 虽然那样第一次还是会慢的)
+再PS: slide下面我放的六张图片总大小为478 + 104 + 192 + 209 + 356 + 376 = 1.7mb, 迟些我看看能不能用懒加载搞定 
     
 # 更新 2017.12.27
 
@@ -61,13 +62,24 @@ PS: 第一次加载可能会慢一些, 毕竟图片还是挺多的, 而且有好
 
     更改主题为: gal
 
-    在你的hexo站点目录(非主题目录)下安装 hexo-renderer-scss
+    在你的hexo站点目录(非主题目录)下安装 hexo-renderer-sass 和 hexo-renderer-scss
     
-    npm install hexo-renderer-scss --save 
+    npm install hexo-renderer-sass --save 
+    
+    npm install hexo-renderer-scss --save
     
     or 
     
+    cnpm install hexo-renderer-sass --save
+    
     cnpm install hexo-renderer-scss --save
+    
+    or 
+    
+    yarn add hexo-renderer-sass(推荐)
+    
+    yarn add hexo-renderer-scss(推荐)
+    
     
     上面的一步是将.scss样式文件渲染成最后的style.css文件
     
@@ -78,6 +90,8 @@ PS: 第一次加载可能会慢一些, 毕竟图片还是挺多的, 而且有好
     or 
     
     cnpm install hexo-generator-json-content --save
+    
+    如果后面你hexo g的时候有问题, 注意看看是不是这个json-content的问题, 如果是的话就是你的node比较老
     
     接着在hexo站点目录的_config.yml下进行配置:
     
