@@ -1,7 +1,7 @@
 @import "variables";
 @import "mixin";
 
-#article {
+#article, #article-archive, #article-tag, #article-tags, #article-categories, #article-category {
 
   &.article {
     position: relative;
