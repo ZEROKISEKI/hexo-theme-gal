@@ -51,7 +51,15 @@ PS: 第一次加载可能会慢一些, 毕竟图片还是挺多的, 而且有好
     
 # 配置说明
 
+    https://github.com/ZEROKISEKI/hexo-theme-gal.git themes/gal
+    
+    or 
+    
+    https://github.com/ZEROKISEKI/hexo-theme-gal.git themes/gal --depth 1
+
 ## 使用该主题前要安装的东西:
+
+    更改主题为: gal
 
     在你的hexo站点目录(非主题目录)下安装 hexo-renderer-scss
     
