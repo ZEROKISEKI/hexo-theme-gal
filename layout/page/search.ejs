@@ -49,7 +49,7 @@
       var resultList = $('#article-list')
       result.forEach(function (article) {
       	var [month, day] = article.date.split('-')
-        var defaultPreview = '<%= url_for(`imgs/${theme.default_preview}`) %>'
+        var defaultPreview = '<%= url_for(`imgs/preview/${theme.default_preview[Math.floor(Math.random() * theme.default_preview.length)]}`) %>'
         var preview = article.preview ? article.preview : defaultPreview
         var path = '<%- config.root %>' + article.path
         resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
