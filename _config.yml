@@ -1,6 +1,19 @@
+# use_logo如果为true, 需要在logo_image设置路径
+use_logo: false
+logo_image:  # 使用路径, 填写文件名即可(比如, logo_image: logo.png 指向 source/imgs/logo.png)
+navbar_text: # 如果没有Logo, 则设置为false, 并且设置navbar_text(否则默认为站点标题, 最好进行设置)
+
+# 必填, 设定小型设备展示背景图, 指向source/imgs, 比如xs_bg_image: bg.png -> source/imgs/bg.png
+xs_bg_image: xsbg.gif
+
+# 必填, 个人头像, 指向source/imgs
+author_image: avatar.png
+
+# 导航菜单
 menu:
   # index
   - title: 首页
+    # 参照font-awesome官网的icon, 取后面一段(比如用fa-star这个图标, 那么这里的icon就填star)
     icon: home
     url: /
   # archives
@@ -9,13 +22,127 @@ menu:
     url: archives
   # categories
   - title: 分类
-    icon: categories
+    icon: list
     url: categories
+    dropdown: 3 #dropdown为下拉菜单出现的项目最大数目(只限于tags和categorys)
+    # 如果不想显示下拉菜单, 则不要填写, 即dropdown:
+    # 具体效果可以看https://myau.moe
   # tags
   - title: 标签
     icon: tags
     url: tags
-  # about-me
+    dropdown: 3
+  # about, 这个实际上是自定义page, 后面的自定义page参照about样式
   - title: 关于我
-    icon: about
-    url: about-me
+    icon: user
+    url: about
+
+# 每篇文章的preview默认图片
+# 必填项(除非你每篇文章的front-matter都设置了preview属性)
+# 填写: 可以放多张图, 系统随机抽取作为默认的preview图片
+# 对应目录: source/imgs/preview
+default_preview:
+  - preview1.jpg
+  - preview2.jpg
+  - preview3.jpg
+  - preview4.jpg
+
+# 侧边栏
+sidebar:
+  recent_comments: false  # 最新评论, 默认关闭, 可能需要自己进行模板配置
+  hot_posts: true         # 最热文章, 如果配置了下面的文章统计就可以使用该侧边栏, 否则设置为false
+  recent_posts: true      # 最新文章, 默认开启
+  random_posts: true      # 随机文章, 默认开启
+  tags: true              # 热门标签, 默认开启
+  friend_links: true      # 友情链接, 默认开启
+  links: true             # 个人链接, 默认开启
+
+# 友情链接配置, 要先开启上面的friend_links
+friend_links:
+  - name: KDays Forum
+    link: http://kdays.net/days/
+  - name: 绅士导航♂
+    link: http://www.gal123.com/
+  - name: 萌导航
+    link: http://www.moe123.com/
+
+# 个人链接配置, 要先开启上面的links
+links:
+  - name: Github
+    link: https://github.com/ZEROKISEKI/
+  - name: Coding
+    link: https://coding.net/u/SORA1
+  - name: 知乎
+    link: https://www.zhihu.com/people/aonosora/activities
+
+
+# 是否使用公告
+# 公告是什么可以看https://myau.moe
+# 如果使用了公告, 那么公告内容需要自己去配置
+# 在主题下的layout/_partial/issue.ejs进行内容修改
+# 如果不用公告, 请设置此项为false
+use_issue: true
+
+# 背景图功能
+# 必填项
+slide_background:
+  # 默认为false, 即采用路径图片
+  use_url: false
+  # use_url: true情况下, 采用七牛外链空间的形式, 下面三个参数组合指向: http://ouo1ro65u.bkt.clouddn.com/background(1~10).png
+  # prefix: http://ouo1ro65u.bkt.clouddn.com/background   七牛对象存储空间外链主机地址和图片名称前缀
+  # ext: png          图片的后缀格式, 要求可供选择的图片都是统一后缀
+  # max_count: 10     可供选择的图片数量, 背景图会从这里随机抽取6张图
+
+  # use_url: false情况下, 采用本地博客图片路径, 下面三个参数组合指向: source/imgs/slide/background(1~10).jpg
+  prefix: slide/background
+  ext: jpg
+  mac_count: 6
+
+
+# 是否开启欧尼酱功能
+open_oni: true
+# 欧尼酱功能设置, 前提为open_oni: true
+oni_setting:
+  # 限三项, 可以自己配置链接(一般是上面的menu或者自己的page)
+  - title: 归档
+    url: archives
+  - title: 关于
+    url: about
+  - title: 留言板
+    url: message
+# 欧尼酱选项图片(可以自己替换, 最好是100 * 100像素的图片)
+# 图片为默认的 source/imgs/oni/oni(1~6).jpg
+# 如果自己替换了不同后缀的图片, 需要在 source/css/_common.css中修改(直接ctrl + F搜oni)
+
+
+# 输入特效activate-power-mode
+# https://github.com/disjukr/activate-power-mode
+power_mode:
+  colorful: true
+  shake: true
+
+# 文章统计, 目前只支持leancloud(可能到时添加不蒜子统计)
+# 获取appId和appKey方法直接百度 or google(或者看这篇http://crescentmoon.info/2014/12/11/popular-widget/)
+# 注意一旦生成新的文章就不要随便改名了
+leancloud:
+  appid:  # your appId
+  appkey: # your appKey
+
+# 评论系统, 目前只支持gitment(为了自定义样式), 后续再添加其他的
+# 关于gitment如何配置看这篇 https://imsun.net/posts/gitment-introduction/
+# 如果不用的话要把下面的use_comment设置为false
+comment:
+  gitment:
+      owner: # 必填项
+      repo:  # 必填项
+      oauth:
+        client_id:  # 必填项
+        client_secret:  # 必填项
+
+# 是否使用评论系统
+use_comment: false
+
+node_sass:
+  outputStyle: compressed
+  precision: 5
+  sourceComments: false
