@@ -7,7 +7,7 @@ navbar_text: # 如果没有Logo, 则设置为false, 并且设置navbar_text(否�
 xs_bg_image: xsbg.gif
 
 # 必填, 个人头像, 指向source/imgs
-author_image: avatar.png
+author_image: avatar.jpg
 
 # 导航菜单
 menu:
