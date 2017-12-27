@@ -1,0 +1,101 @@
+// Colors
+
+$purple: rgba(138, 43, 226, 0.7);
+$purple1: rgb(107, 105, 214);
+$red: #d9534f;
+$violet: rgba(100, 90, 200, 0.7);
+$black2: #3d4450;
+$indigo: rgb(30, 199, 230);            // 靛蓝色
+
+
+// others
+$box-shadow: 0 0 8px black;
+$hover-box-shadow: 0 0 50px black;
+$focus-box-shadow: 0 0 50px black;
+
+// bootstrap
+$alert-color:  #666;
+$alert-bg-color: #eee;
+$dropdown-menu-bg-color: rgba(255,255,255,0.8);
+$breadcrumb-bg-color: rgba(255,255,255,0.4);
+
+// body
+$body-font: "Microsoft Yahei",Helvetica,Arial,sans-serif;
+$body-font-sz: 12px;
+$body-color: $black2;
+$body-small-bg-color: #f0f0f0;
+
+// scrollbar
+$scrollbar-bg-color: #F5F5F5;
+$scrollbar-track-bg-color: #F5F5F5;
+$scrollbar-thumb-bg-color: #018EE8;
+$scrollbar-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+
+// link
+$link-color: #d2322d;
+$link-hover-bg-color: rgb(217, 83, 79);
+
+// nav
+$nav-box-shadow: $box-shadow;
+$nav-border-color: #080808;
+$nav-inverse: rgba(10, 10, 0, 0.7);
+$nav-button-outline-color: rgb(229, 151, 0);
+
+// pagination
+$pagination-color: rgb(230, 230, 250);
+$pagination-bg-color: rgba(255, 255, 255, 0.1);
+$pagination-bd-color: $purple1;
+$pagination-active-color: $pagination-bd-color;
+
+// footer
+$footer-color: rgb(238, 238, 238);
+$footer-link-color: $link-hover-bg-color;
+
+// goTop
+$goTop-bg-color: $nav-inverse;
+$goTop-hover-color: $link-hover-bg-color;
+$goTop-hover-bd-color: $goTop-hover-color;
+
+// excerpt
+$article-bg-color: rgba(230,238,232,0.5);
+$article-box-shadow: $box-shadow;
+$tag-bg-color: rgba(10, 10, 0, 0.7);
+$content-article-color: rgb(51, 51, 51);
+$content-article-info-bg-color: rgba(0, 0, 0, 0.6);
+$content-article-info-color: rgb(187, 187, 187);
+
+// issue
+$issue-bg-color: $article-bg-color;
+$issue-hover-bg-color: rgba(255, 255, 255, 0.9);
+
+
+// sidebar
+$sidebar-panel-head-bg-color: rgba(10, 10, 0, 0.7);
+$sidebar-panel-box-shadow: 0 0 5px #c2c2c2;
+$sidebar-panel-hover-box-shadow: 0px 0px 50px black;
+$sidebar-panel-bg-color: rgba(230, 238, 232, 0.5);
+$sidebar-panel-link-color:  rgb(102, 102, 102);
+$sidebar-panel-link-hover-color: rgb(185, 74, 72);
+
+$list-group-item-bg-color: rgba(230, 238, 232, 0.3);
+$list-group-item-hover-bg-color: rgba(255, 255, 255, 0.7);
+$list-group-item-hover-box-shadow: 0 0 50px black;
+
+$sidebar-search-bg-color: rgba(10, 10, 0, 0.7);
+$search-input-bd-color: #f89693;
+$search-input-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(238,88,83,0.6);
+
+$sidebar-tab-content-bd-color: rgb(238, 238, 238);
+
+$sidebar-tab-tags-7-1-bg-color: rgb(66, 139, 202);
+$sidebar-tab-tags-7-2-bg-color: rgb(92, 184, 92);
+$sidebar-tab-tags-7-3-bg-color: rgb(217, 83, 79);
+$sidebar-tab-tags-7-4-bg-color: rgb(240, 173, 78);
+$sidebar-tab-tags-7-5-bg-color: rgb(179, 115, 51);
+$sidebar-tab-tags-7-6-bg-color: rgb(180, 51, 255);
+$sidebar-tab-tags-7-bg-color: rgb(74, 74, 74);
+
+// page
+$search-breadcrumb-bg-color: rgba(230, 238, 232, 0.5);
+$search-breadcrumb-box-shadow: rgb(194, 194, 194) 0px 0px 5px;
+

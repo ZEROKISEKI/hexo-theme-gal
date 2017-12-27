@@ -1,0 +1,33 @@
+@import "variables";
+@import "mixin";
+
+header#gal-header {
+  font-size: 14px;
+  border-radius: 0;
+  border-color: $nav-border-color;
+  background-color: $nav-inverse;
+  @include gal-box-shadow($nav-box-shadow);
+  & .navbar-toggle {
+    &:hover, &:focus {
+      background-color: #333;
+      outline: $nav-button-outline-color auto 5px;
+    }
+    .fa-reorder {
+      color: #fff;
+    }
+  }
+  & #menu-gal {
+    & > li > a {
+      color: #fff;
+    }
+    & > li.current > a {
+      background-color: $purple;
+    }
+    & > li:not(.current) {
+      & > a:hover, & > a:focus {
+        @include gal-transition($duration: .25s);
+        background-color: $violet;
+      }
+    }
+  }
+}

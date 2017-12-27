@@ -1,0 +1,33 @@
+@import "variables";
+@import "mixin";
+
+#gal-pagination {
+  > .pagination-gal {
+    margin: 0;
+    border-radius: 4px;
+    > li > a, > li > span {
+      color: $pagination-color;
+      background-color: $pagination-bg-color;
+      margin-left: 10px;
+      border: 2px solid $pagination-bd-color;
+      border-image: initial;
+      border-radius: 4px;
+      &:hover, &:focus {
+        color: #fff;
+        background-color: $pagination-active-color;
+        border: 2px solid $pagination-bd-color;
+        border-image: initial;
+        @include gal-transition($duration: 0.3s);
+      }
+    }
+
+
+    > li.current > span {
+      color: #fff;
+      background-color: $pagination-active-color;
+      border: 2px solid $pagination-bd-color;
+      border-image: initial;
+      @include gal-transition($duration: 0.3s);
+    }
+  }
+}

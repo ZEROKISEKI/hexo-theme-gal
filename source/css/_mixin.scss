@@ -1,0 +1,28 @@
+@mixin gal-transition($property: all, $duration: 0.35s, $timing-function: ease-in-out) {
+  -webkit-transition: $property $duration $timing-function;
+  -moz-transition: $property $duration $timing-function;
+  -ms-transition: $property $duration $timing-function;
+  -o-transition: $property $duration $timing-function;
+  transition: $property $duration $timing-function;
+}
+
+@mixin gal-box-shadow($gal-box-shadow) {
+  box-shadow: $gal-box-shadow;
+  -webkit-box-shadow:  $gal-box-shadow;
+  -moz-box-shadow: $gal-box-shadow;
+  -o-box-shadow: $gal-box-shadow;
+}
+
+@mixin gal-transform($param) {
+  -webkit-transform: $param;
+  -moz-transform: $param;
+  -ms-transform: $param;
+  -o-transform: $param;
+  transform: $param;
+}
+
+@mixin gal-backface-visibility($param) {
+  backface-visibility: $param;
+  -webkit-backface-visibility: $param;
+  -moz-backface-visibility: $param;
+}

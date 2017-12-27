@@ -1,0 +1,194 @@
+@import "variables";
+@import "mixin";
+
+.panel-toggle, .panel-remove {
+  float: right;
+  cursor: pointer;
+  margin: 0 0 0 5px;
+  &:hover {
+    color: $link-hover-bg-color;
+    @include gal-transition($duration: 0.3s, $timing-function: ease);
+  }
+}
+
+.panel ul.list-group {
+  max-height: 500px;
+  width: 100%;
+  @include gal-transition($duration: 0.3s, $timing-function: ease);
+}
+
+.panel.toggled ul.list-group {
+  max-height: 0;
+  width: 100%;
+  overflow: hidden;
+  @include gal-transition($duration: 0.3s, $timing-function: ease);
+}
+
+.panel-gal > .panel-heading {
+  color: #fff;
+  background-color: $sidebar-panel-head-bg-color;
+  border-color: #000;
+}
+
+.panel.toggled .panel-heading {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  @include gal-transition($duration: .3s, $timing-function: ease);
+}
+
+.panel-gal .badge {
+  background-color: $link-hover-bg-color;
+}
+
+.panel-gal a {
+  color: $sidebar-panel-link-color;
+  &:hover {
+    color: $sidebar-panel-link-hover-color;
+  }
+}
+
+.panel .post-title {
+  display: inline-block;
+  width: 75%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#sidebar {
+  aside > div {
+    margin-bottom: 30px;
+  }
+  div.search {
+    margin-bottom: 20px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: $sidebar-search-bg-color;
+    input[type="text"] {
+      width: 85%;
+      float: left;
+      margin-right: 10px;
+      background-color: transparent;
+      &:focus {
+        background-color: #fff;
+        @include gal-box-shadow($focus-box-shadow);
+      }
+    }
+    button {
+      float: left;
+      margin-top: 2px;
+    }
+  }
+}
+
+.author-panel {
+  padding: 20px 0;
+  img.author-image {
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    &:hover {
+      @include gal-transition($duration: .3s, $timing-function: ease);
+      @include gal-transform(rotate(360deg));
+    }
+  }
+  p.author-description {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.nav > li {
+  > a {
+    &:hover, &:focus {
+      text-decoration: none;
+      background-color: $red;
+      @include gal-transition($duration: .25s);
+    }
+  }
+}
+
+.nav-pills {
+  > li.active {
+    a {
+      color: #fff;
+      background-color: $red;
+      &:hover, &:focus {
+        color: #fff;
+        background-color: $red;
+      }
+    }
+  }
+}
+
+ul.pills-gal {
+  padding: 10px;
+  li {
+    margin-left: 5px;
+    a {
+      border-radius: 5px;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.tab-content {
+  border-top: 1px solid $sidebar-tab-content-bd-color;
+  padding: 10px;
+}
+
+.panel-gal {
+  .tab-content, .nav-pills {
+    a {
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+#sidebar-tags a:hover {
+  color: #fff;
+}
+
+.cloud-tags a {
+  display: inline-block;
+  color: #fff;
+  opacity: 0.7;
+  padding: 2px 6px 3px;
+  margin: 0 2px;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.cloud-tags a:nth-child(7n+1) {
+  background-color: $sidebar-tab-tags-7-1-bg-color;
+}
+
+.cloud-tags a:nth-child(7n+2) {
+  background-color: $sidebar-tab-tags-7-2-bg-color;
+}
+
+.cloud-tags a:nth-child(7n+3) {
+  background-color: $sidebar-tab-tags-7-3-bg-color;
+}
+
+.cloud-tags a:nth-child(7n+4) {
+  background-color: $sidebar-tab-tags-7-4-bg-color;
+}
+
+.cloud-tags a:nth-child(7n+5) {
+  background-color: $sidebar-tab-tags-7-5-bg-color;
+}
+
+.cloud-tags a:nth-child(7n+6) {
+  background-color: $sidebar-tab-tags-7-6-bg-color;
+}
+
+.cloud-tags a:nth-child(7n) {
+  background-color: $sidebar-tab-tags-7-bg-color;
+}

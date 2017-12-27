@@ -1,0 +1,51 @@
+@import "variables";
+@import "mixin";
+
+#article {
+
+  &.article {
+    position: relative;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+  }
+
+  &.article-body {
+    background-color: $article-bg-color;
+    @include gal-box-shadow($article-box-shadow);
+    &:hover {
+      @include gal-box-shadow($hover-box-shadow);
+    }
+  }
+
+  .title-article {
+    padding: 10px 15px 0 15px;
+    > h1 {
+      font-size: 32px;
+      margin: 0 auto;
+      text-align: center;
+      > a {
+        color: $black2;
+        text-decoration: none;
+        &:hover {
+          color: $red;
+          text-decoration: none;
+          @include gal-transition($duration: .3s, $timing-function: ease);
+        }
+      }
+    }
+  }
+
+  .tag-article {
+    text-align: center;
+    line-height: 24px;
+    margin: 20px;
+  }
+
+  .content-article {
+    img {
+      margin: 10px auto;
+      display: inline-block;
+      width: auto;
+    }
+  }
+}
