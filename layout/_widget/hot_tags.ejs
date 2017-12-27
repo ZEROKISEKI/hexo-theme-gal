@@ -1,0 +1,6 @@
+<div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    <% site.tags.forEach(function (tag) {
+    	var randNum = 8 + Math.random() * 12 %>
+    <a href="<%- url_for(tag.path) %>" style="font-size: <%= randNum %>px;" class="tag-cloud-link"><%= tag.name %></a>
+    <% }) %>
+</div>

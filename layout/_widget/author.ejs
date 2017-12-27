@@ -1,0 +1,14 @@
+<aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            <%= config.author %>
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="<%- url_for(`imgs/${theme.author_image}`) %>" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><%- markdown(config.description) %></p>
+        </div>
+    </div>
+</aside>

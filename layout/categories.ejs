@@ -1,0 +1,37 @@
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="<%- config.url %>"><%= config.title %></a>
+        >
+        <span>目录</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="<%- url_for('categories') %>">目录集合</a>
+            </h1>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="<%- url_for('categories') %>">目录集合</a>
+                </h4>
+            </div>
+        </center>
+    </div>
+    <div class="content-article" style="margin-top: 30px;">
+        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+            <% site.categories.forEach(function (category) { %>
+            <a href="<%- url_for(category.path) %>"><%= category.name %></a>
+            <br>
+            <% }) %>
+            <% if (site.categories.length === 0) { %>
+            暂无目录
+            <% } %>
+        </div>
+    </div>
+</article>

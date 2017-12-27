@@ -1,0 +1,10 @@
+<!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
+<% if(page.title === 'search') { %>
+<%- partial('page/search', { item: page }) %>
+<!-- 404页面 -->
+<% } else if(page.title === '404') { %>
+<%- partial('page/404') %>
+<!-- 有其他想自定义的page在这里添加判断条件, 并且写好对应的模板渲染文件 -->
+<% } else { %>
+<%- partial('_partial/article', { item: page, isPage: true } ) %>
+<% } %>

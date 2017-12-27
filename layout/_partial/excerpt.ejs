@@ -1,0 +1,94 @@
+<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    <% if(typeof top !== 'undefined' && top === true) { %>
+    <i class="fa fa-bookmark article-stick visible-md visible-lg"></i>
+    <% } %>
+    <div class="data-article hidden-xs">
+        <span class="month"><%= item.date.format('MM') %>月</span>
+        <span class="day"><%= item.date.format('DD') %></span>
+    </div>
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="<%- url_for(item.path) %>">
+                    <span><%= item.title %></span>
+                </a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            <% if(item.tags.data.length > 0) { %>
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                <% item.tags.data.forEach(function (tag, index) { %>
+                <a href="<%- url_for(tag.path) %>"><%= tag.name %></a><%= index === item.tags.data.length - 1 ? '' : ', ' %>
+                <% }) %>
+            </span>
+            <% } %>
+            <% if(theme.leancloud.appid && theme.leancloud.appkey) { %>
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            <% } %>
+            <!-- TODO 添加评论统计 -->
+            <span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="<%- url_for(item.path) %>#comments">739</a>
+            </span>
+        </div>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="<%- url_for(item.path) %>">
+                    <div class="img">
+                        <img src="<%- item.preview ? item.preview : url_for(`imgs/preview/${theme.default_preview[Math.floor(Math.random() * theme.default_preview.length)]}`)  %>" alt="<%= item.title %>">
+                    </div>
+                    <div class="info">
+                        <p><%= item.excerpt %></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="<%- url_for(item.path) %>">
+                        <span><%= item.title %></span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> <%= item.date.format('YYYY-MM-DD') %>
+        </center>
+        <p></p>
+        <p></p>
+        <center>
+            <% if(item.tags.data.length > 0) { %>
+            <i class="fa fa-tags"></i>
+            <% item.tags.data.forEach(function (tag, index) { %>
+            <a href="<%- url_for(tag.path) %>"><%= tag.name %></a><%= index === item.tags.data.length - 1 ? '' : ', ' %>
+            <% }) %>
+            <% } %>
+            <% if(theme.leancloud.appid && theme.leancloud.appkey) { %>
+            <i class="fa fa-eye"></i>
+            <% } %>
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="<%- url_for(item.path) %>">
+                    <img src="<%- item.preview ? item.preview : url_for(`imgs/${theme.default_preview}`)  %>" alt="<%= item.title %>">
+                </a>
+            </p>
+        </div>
+        <div class="alert alert-gal">
+            <%= item.excerpt %>
+        </div>
+        <a class="btn btn-danger pull-right read-more btn-block" href="<%- url_for(item.path) %>">
+            阅读全文
+            <span class="badge">739</span>
+        </a>
+    </section>
+</div>

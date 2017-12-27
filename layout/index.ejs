@@ -1,4 +1,24 @@
-<% page.posts.forEach(function (post) { %>
-<%- partial('_partial/post/excerpt', { item: post }) %>
-<% }) %>
+<% if(theme.use_issue) { %>
+<%- partial('_partial/issue') %>
+<% } %>
+<div id="article-list">
+     <%
+        // 如果要置顶文章, 就在front-matter上设置 top: true
+        // 一般置顶文章一篇就够了吧2333
+        // 关键还是置顶文章是从文章抽出来的, 如果某一分页段的置顶文章过多
+        // 可能会造成某一分页的文章数目较多, 不过问题应该不大
+        if (page.prev === 0) {
+            var topPosts = site.posts.filter(function (post) {
+                return typeof post.top !== 'undefined' && post.top === true
+            }).sort('date', -1)
+            topPosts.forEach(function (post) { %>
+            <%- partial('_partial/excerpt', { item: post, top: true }) %>
+            <% })
+        } %>
+     <% page.posts.filter(function (post) {
+         return typeof post.top === 'undefined' || post.top === false
+     }).forEach(function (post) { %>
+     <%- partial('_partial/excerpt', { item: post }) %>
+     <% }) %>
+</div>
 <%- partial('_partial/pagination', { page: page }) %>

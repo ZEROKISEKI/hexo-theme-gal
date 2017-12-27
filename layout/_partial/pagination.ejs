@@ -7,49 +7,52 @@
 <% if(page.total > 0) { %>
 <% let num = Math.ceil(site.posts.length / config.index_generator.per_page) %>
 <div id="gal-pagination" class="clearfix">
-    <ul class="pagination pagination-gal">
+    <ul class="pagination pagination-gal pull-right">
         <% if (page.prev > 0) { %>
-        <li class="pagination-gal-index">
+        <li class="prev">
             <a href="<%- url_for(page.prev_link) %>">«</a>
         </li>
         <% } %>
         <% if (page.current > 7) { %>
-        <li class="pagination-gal-index">
+        <li>
+            <a href="/">1</a>
+        </li>
+        <li>
             <span>...</span>
         </li>
         <% for(let i = page.current - 3; i < page.current; i++) { %>
-        <li class="pagination-gal-index">
-            <a href="<% if (i === 1) { %><%- url_for() %><% } else { %><%- url_for(`page/${i}`) %> <% } %>"><%= i %></a>
+        <li>
+            <a href="<% if (i === 1) { %><%- url_for('') %><% } else { %><%- url_for(`page/${i}`) %> <% } %>"><%= i %></a>
         </li>
         <% } %>
         <% } else { %>
         <% for(let i = 1; i < page.current; i++) { %>
-        <li class="pagination-gal-index">
-            <a href="<% if (i === 1) { %><%- url_for() %><% } else { %><%- url_for(`page/${i}`) %> <% } %>"><%= i %></a>
+        <li>
+            <a href="<% if (i === 1) { %><%- url_for('') %><% } else { %><%- url_for(`page/${i}`) %> <% } %>"><%= i %></a>
         </li>
         <% } %>
         <% } %>
-        <li class="pagination-gal-index current">
+        <li class="current">
             <span><%= page.current %></span>
         </li>
         <% if(page.current + 7 < num) { %>
         <% for(let i = page.current + 1; i<= page.current + 3; i++) { %>
-        <li class="pagination-gal-index">
+        <li>
             <a href="<%- url_for(`page/${i}`) %>"><%= i %></a>
         </li>
         <% } %>
-        <li class="pagination-gal-index">
+        <li>
             <span>...</span>
         </li>
         <% } else { %>
         <% for(let i = page.current + 1; i <= num; i++) { %>
-        <li class="pagination-gal-index">
+        <li>
             <a href="<%- url_for(`page/${i}`) %>"><%= i %></a>
         </li>
         <% } %>
         <% } %>
         <% if (page.next > 0) { %>
-        <li class="pagination-gal-next">
+        <li class="next">
             <a href="<%- url_for(page.next_link) %>">»</a>
         </li>
         <% } %>

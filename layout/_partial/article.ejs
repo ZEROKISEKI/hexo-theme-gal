@@ -1,0 +1,111 @@
+<% if (!isPage) { %>
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="<%- config.url %>"><%= config.title %></a>
+        >
+        <span><%= item.title %></span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="<%- url_for(item.path) %>"><%= item.title %></a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            <% if(item.tags.data.length > 0) { %>
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                <% item.tags.data.forEach(function (tag, index) { %>
+                <a href="<%- url_for(tag.path) %>"><%= tag.name %></a><%= index === item.tags.data.length - 1 ? '' : ', ' %>
+                <% }) %>
+            </span>
+            <% } %>
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> <%= item.date.format('YYYY-MM-DD') %>
+            </span>
+            <% if(theme.leancloud.appid && theme.leancloud.appkey) { %>
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            <% } %>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="<%- url_for(item.path) %>"><%= item.title %></a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> <%= item.date.format('YYYY-MM-DD') %>
+            </p>
+            <p>
+                <% if(item.tags.data.length > 0) { %>
+                <i class="fa fa-tags"></i>
+                <% item.tags.data.forEach(function (tag, index) { %>
+                <a href="<%- url_for(tag.path) %>"><%= tag.name %></a><%= index === item.tags.data.length - 1 ? '' : ', ' %>
+                <% }) %>
+                <% } %>
+                <% if(theme.leancloud.appid && theme.leancloud.appkey) { %>
+                <i class="fa fa-eye"></i>
+                <% } %>
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <%- item.content %>
+    </div>
+</article>
+<% } else { %>
+<article class="article well article-body" id="article">
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="<%- url_for(item.path) %>"><%= item.title %></a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> <%= item.date.format('YYYY-MM-DD') %>
+            </span>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="<%- url_for(item.path) %>"><%= item.title %></a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> <%= item.date.format('YYYY-MM-DD') %>
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <%- item.content %>
+    </div>
+</article>
+<% } %>
+<% if(theme.use_comment === true) { %>
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		owner: '<%= theme.comment.gitment.owner %>',
+		repo: '<%= theme.comment.gitment.repo %>',
+		oauth: {
+			client_id: '<%= theme.comment.gitment.oauth.client_id %>',
+			client_secret: '<%= theme.comment.gitment.oauth.client_secret %>',
+		},
+	})
+	gitment.render('comments-template')
+</script>
+<% } %>

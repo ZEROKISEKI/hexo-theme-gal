@@ -1,0 +1,52 @@
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="<%- config.url %>"><%= config.title %></a>
+        >
+        <span>归档</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="<%- url_for('archives') %>">归档</a>
+            </h1>
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="<%- url_for('archives') %>">归档</a>
+                </h4>
+            </div>
+        </center>
+    </div>
+    <div class="content-article" style="margin-top: 30px;">
+        <% if (site.posts.length > 0) {
+            var lastYear = null
+
+        %>
+        <% site.posts.sort('date', -1).forEach(function (post, index) {
+            if(index === 0) { %>
+            <h1 style="font-size: 24px; margin-top: 40px;"><%= post.date.toDate().getFullYear() %>年</h1>
+            <% }
+        }) %>
+        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+            <% site.posts.sort('date', -1).forEach(function (post) {
+            	var year = post.date.toDate().getFullYear() %>
+             <% if (lastYear !== +year) {
+                 if(lastYear !== null) { %>
+                        </div>
+                    <h1 style="font-size: 24px; margin-top: 40px;"><%= year %>年</h1>
+                    <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+                 <% } lastYear = year %>
+             <% } %>
+                        <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+                        <br>
+            <% }) %>
+                    </div>
+        <% } %>
+    </div>
+</article>

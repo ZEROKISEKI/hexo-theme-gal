@@ -1,0 +1,7 @@
+<div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    <% theme.friend_links.forEach(function (friend) { %>
+    <li>
+        <a href="<%= friend.link %>" target="_blank"><%= friend.name %></a>
+    </li>
+    <% }) %>
+</div>

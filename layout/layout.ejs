@@ -1,30 +1,80 @@
 <%- partial('_partial/head') %>
 <body>
+    <!-- 背景轮播图功能 -->
+    <%- partial('_partial/slideshow.ejs') %>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    <% if(theme.open_oni === true) { %>
+    <%- partial('_partial/oni.ejs') %>
+    <% } %>
     <%- partial('_partial/header') %>
     <div id="gal-body">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-xs-12 col-sm-8 col-lg-8 gal-right">
+                <div class="col-md-8 gal-right" id="mainstay">
                     <%- body %>
                 </div>
-                <div class="col-md-4 col-sm-4 col-lg-4 gal-left">
-                    <%- partial('_partial/sidebar') %>
-                </div>
+                <%- partial('_partial/sidebar') %>
             </div>
         </div>
     </div>
-    <footer class="gal-footer">
-        <%- partial('_partial/footer') %>
-    </footer>
+    <%- partial('_partial/footer') %>
 </body>
-<%- js('js/activate-power-mode.js') %>
+<%- js(['js/activate-power-mode.js']) %>
 <script>
+
+    // 配置highslide
 	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
 </script>
 <script>
-	POWERMODE.colorful = true; // make power mode colorful
-	POWERMODE.shake = false; // turn off shake
+	POWERMODE.colorful = '<%= theme.power_mode.colorful %>';    // make power mode colorful
+	POWERMODE.shake = '<%= theme.power_mode.colorful %>';       // turn off shake
 	// TODO 这里根据具体情况修改
 	document.body.addEventListener('input', POWERMODE);
 </script>
+<script>
+    window.slideConfig = {
+      prefix: '<%- theme.slide_background.use_url ? theme.slide_background.prefix : url_for(`imgs/${theme.slide_background.prefix}`) %>',
+      ext: '<%- theme.slide_background.ext %>',
+      maxCount: '<%- theme.slide_background.mac_count %>'
+    }
+</script>
+<%- js(['js/hs.js', 'js/blog.js']) %>
+<% if(theme.open_oni === true) { %>
+<%- js('js/oni.js') %>
+<% } %>
+<% if(theme.leancloud.appid && theme.leancloud.appkey) { %>
+<script>
+    window.hot_posts_count = '<%= config.per_page %>'
+    // window.use_leancloud = '<%= !!(theme.leancloud.appid && theme.leancloud.appkey) %>'
+</script>
+<%- js('js/comment/leancloud.js') %>
+<% } %>
 </html>

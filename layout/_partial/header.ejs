@@ -1,21 +1,103 @@
-<header class="navbar navbar-inverse">
+<header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed"
                     data-toggle="collapse" data-target=".bs-navbar-collapse"
                     aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
             </button>
-            <a href="<%- url_for() %>">
-                <div class="navbar-brand" ></div>
+            <a href="<%= config.url %>">
+                <% if(theme.use_logo === true) {
+                	if(/https?:\/\//.test(theme.logo_image)) { %>
+                <!-- 这里background直接使用logo_image(url) -->
+                <style>
+
+                </style>
+                    <% } else { %>
+                <!-- 这里background使用imgs/${logo_image}(路径文件名) -->
+                <style>
+                    #gal-header .navbar-brand {
+                        width: 200px;
+                        height: 50px;
+                        display: block;
+                        background: url('<%= url_for(`imgs/${theme.logo_image}`) %>') no-repeat;
+                    }
+                </style>
+                    <% } %>
+                <div class="navbar-brand"></div>
+                <% } else { %>
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand"><%= theme.navbar_text ? theme.navbar_text : config.title %></div>
+                <% } %>
             </a>
         </div>
         <div class="collapse navbar-collapse bs-navbar-collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" id="menu-gal">
                 <% theme.menu.forEach(function (m) { %>
-                <li>
-                    <i class="cube-icon cube-icon-<%= m.icon %>" aria-hidden="true"></i>
-                    <a href="<%- url_for(m.url) %>"><%- m.title %></a>
+                <% if ((m.url === 'tags' || 'categories') && m.dropdown > 0) { %>
+                <% if (m.url === 'tags' && site.tags.length === 0) { %>
+                <li class="<%= path.includes(m.url) ? 'current' : '' %>">
+                    <a href="<%- url_for(m.url) %>">
+                        <i class="fa fa-<%= m.icon %>"></i><%= m.title %>
+                    </a>
                 </li>
+                <% } else if(m.url === 'categories' && site.categories.length === 0) { %>
+                <li class="<%= path.includes(m.url) ? 'current' : '' %>">
+                    <a href="<%- url_for(m.url) %>">
+                        <i class="fa fa-<%= m.icon %>"></i><%= m.title %>
+                    </a>
+                </li>
+                <% } else { %>
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-<%= m.icon %>"></i><%= m.title %>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <% if (m.url === 'categories')  { %>
+                        <% site.categories.slice(0, 3).forEach(function (category, index) { %>
+                        <li>
+                            <a href="<%- url_for(category.path) %>"><%= category.name %></a>
+                        </li>
+                        <% }) %>
+                        <% if(site.categories.length > m.dropdown) { %>
+                        <li>
+                            <a href="<%- url_for(m.url) %>">...</a>
+                        </li>
+                        <% } %>
+                        <% } else { %>
+                        <% site.tags.slice(0, 3).forEach(function (tag, index) { %>
+                        <li>
+                            <a href="<%- url_for(tag.path) %>"><%= tag.name %></a>
+                        </li>
+                        <% }) %>
+                        <% if(site.tags.length > m.dropdown) { %>
+                        <li>
+                            <a href="<%- url_for(m.url) %>">...</a>
+                        </li>
+                        <% } %>
+                        <% } %>
+                    </ul>
+                </li>
+                <% } %>
+                <% } else { %>
+                <li class="<%= ((m.url === '/' && path === 'index.html') || (m.url !== '/' && path.includes(m.url))) ? 'current' : '' %>">
+                    <a href="<%- url_for(m.url) %>">
+                        <i class="fa fa-<%= m.icon %>"></i><%= m.title %>
+                    </a>
+                </li>
+                <% } %>
                 <% }) %>
             </ul>
         </div>

@@ -22,9 +22,28 @@
     }%>
     <title><%= title.join(' | ') %></title>
 
-    <%- css('css/bootstrap.min.css') %>
+    <%- css(['css/bootstrap.min.css', 'css/aos.css' , 'css/style.css']) %>
     <%- js('js/jquery.min.js') %>
     <%- js('js/bootstrap.min.js') %>
-    <%- js('js/highslide/highslide.js') %>
+    <%- js('js/aos.js') %>
+    <%- js('js/highslide/highslide-full.min.js') %>
     <%- css('js/highslide/highslide.css') %>
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/<%= theme.xs_bg_image %>');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    <% if(theme.leancloud.appid && theme.leancloud.appkey) { %>
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: '<%= theme.leancloud.appid %>',
+        appKey: '<%= theme.leancloud.appkey %>'
+      })
+    </script>
+    <% } %>
 </head>
