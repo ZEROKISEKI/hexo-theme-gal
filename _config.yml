@@ -6,7 +6,8 @@ navbar_text: # 如果没有Logo, 则设置为false, 并且设置navbar_text(否�
 # 必填, 设定小型设备展示背景图, 指向source/imgs, 比如xs_bg_image: bg.png -> source/imgs/bg.png
 xs_bg_image: xsbg.gif
 
-# 必填, 个人头像, 指向source/imgs
+# 必填, 个人头像, 如果是路径, 则指向source/imgs
+# 也可以填http:// OR https:// url地址
 author_image: avatar.jpg
 
 # 导航菜单
@@ -39,8 +40,9 @@ menu:
 
 # 每篇文章的preview默认图片
 # 必填项(除非你每篇文章的front-matter都设置了preview属性)
-# 填写: 可以放多张图, 系统随机抽取作为默认的preview图片
-# 对应目录: source/imgs/preview
+# 填写: 可以放多张图, 将随机抽取作为默认的preview图片
+# 如果使用文件名则对应目录: source/imgs/preview, 比如 preview1.jpg -> source/imgs/preview/preview1.jpg
+# 如果用url则填写完整的url地址即可
 default_preview:
   - preview1.jpg
   - preview2.jpg
@@ -87,7 +89,7 @@ use_issue: true
 # 必填项
 slide_background:
   # 默认为false, 即采用路径图片
-  use_url: false
+  use_url: true
   # use_url: true情况下, 采用七牛外链空间的形式, 下面三个参数组合指向: http://ouo1ro65u.bkt.clouddn.com/background(1~10).png
   # prefix: http://ouo1ro65u.bkt.clouddn.com/background   七牛对象存储空间外链主机地址和图片名称前缀
   # ext: png          图片的后缀格式, 要求可供选择的图片都是统一后缀
@@ -133,10 +135,10 @@ leancloud:
 # 如果不用的话要把下面的use_comment设置为false
 comment:
   gitment:
-      owner: # 必填项
-      repo:  # 必填项
+      owner: # 必填项, 你的GitHub ID
+      repo:  # 必填项  你的存储评论的repo
       oauth:
-        client_id:  # 必填项
+        client_id: # 必填项
         client_secret:  # 必填项
 
 # 是否使用评论系统
