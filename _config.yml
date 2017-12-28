@@ -96,7 +96,7 @@ slide_background:
   # max_count: 10     可供选择的图片数量, 背景图会从这里随机抽取6张图
 
   # use_url: false情况下, 采用本地博客图片路径, 下面三个参数组合指向: source/imgs/slide/background(1~10).jpg
-  prefix: slide/background
+  prefix: imgs/slide/background
   ext: jpg
   mac_count: 6
 
@@ -130,19 +130,20 @@ leancloud:
   appid:  # your appId
   appkey: # your appKey
 
-# 评论系统, 目前只支持gitment(为了自定义样式), 后续再添加其他的
+# 评论系统, 目前只支持gitment(为了自定义样式)
 # 关于gitment如何配置看这篇 https://imsun.net/posts/gitment-introduction/
 # 如果不用的话要把下面的use_comment设置为false
 comment:
   gitment:
       owner: # 必填项, 你的GitHub ID
-      repo:  # 必填项  你的存储评论的repo
+      repo: # 必填项  你的存储评论的repo
       oauth:
-        client_id: # 必填项
-        client_secret:  # 必填项
+        client_id:  # 必填项
+        client_secret: # 必填项
+        redirect_uri: # 可以填也可以不填
 
 # 是否使用评论系统
-use_comment: false
+use_comment: true
 
 node_sass:
   outputStyle: compressed
