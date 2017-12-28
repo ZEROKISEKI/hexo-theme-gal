@@ -6,7 +6,7 @@
             <i class="fa fa-quote-right"></i>
         </div>
         <div class="author-panel text-center">
-            <img src="<%- url_for(`imgs/${theme.author_image}`) %>" width="140" height="140"
+            <img src="<%- url_for(/https?:\/\//.test(theme.author_image) ? theme.author_image : `imgs/${theme.author_image}`) %>" width="140" height="140"
                  alt="个人头像" class="author-image">
             <p class="author-description"><%- markdown(config.description) %></p>
         </div>
