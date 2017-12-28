@@ -143,7 +143,7 @@ comment:
         redirect_uri: # 可以填也可以不填
 
 # 是否使用评论系统
-use_comment: true
+use_comment: false
 
 node_sass:
   outputStyle: compressed
