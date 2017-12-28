@@ -2,7 +2,7 @@
 @import "mixin";
 
 #gal-pagination {
-  > .pagination-gal {
+  .pagination-gal {
     margin: 0;
     border-radius: 4px;
     > li > a, > li > span {

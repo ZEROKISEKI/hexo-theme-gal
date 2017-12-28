@@ -1,0 +1,236 @@
+@import "variables";
+@import "mixin";
+
+#comments-template {
+  .gitment-container.gitment-root-container {
+
+    // 评论框头部
+    .gitment-header-container {
+      text-align: center;
+      font-size: 14px;
+      margin: 20px 0 20px 0;
+      &.alert {
+        border-image: initial;
+        border-radius: 4px;
+        overflow: auto;
+      }
+      &.alert-info {
+        color: $comments-alert-info-color;
+        background-color: $comments-alert-info-bg-color;
+      }
+    }
+
+    // 评论框主体
+    .gitment-comments-container.comment-list {
+      padding: 0;
+      a {
+        color: $comments-link-color;
+        &:hover {
+          color: $comments-link-hover-color;
+          text-decoration: none;
+        }
+      }
+      > li {
+        background-color: $comments-list-item-bg-color;
+        @include gal-box-shadow(black 0 0 8px);
+        margin: 10px 0;
+        list-style: none;
+        padding: 2px;
+        border-radius: 4px;
+        -webkit-transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        -moz-transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        -ms-transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        -o-transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        &:hover {
+          background-color: #fff;
+          @include gal-box-shadow(black 0px 0px 50px);
+        }
+        .comment-body {
+          position: relative;
+
+          .comment-meta {
+            position: relative;
+            height: auto;
+            min-height: 37px;
+            line-height: 37px;
+            padding-left: 45px;
+            background: $comments-list-item-meta-bg-color;
+
+            .comment-author {
+              float: left;
+              img {
+                background-color: white;
+                position: absolute;
+                display: block;
+                left: -40px;
+                top: 10px;
+                border: 2px solid #fff;
+                border-image: initial;
+                border-radius: 50%;
+                margin: 0;
+                @include gal-transition($duration: 0.3s, $timing-function: ease);
+              }
+              .says {
+                // margin-left: 10px;
+              }
+            }
+
+            .comment-metadata {
+              text-transform: uppercase;
+              float: right;
+              margin-right: 10px;
+              font-size: 12px;
+              font-weight: bold;
+              text-decoration: none;
+              border-radius: 4px;
+            }
+          }
+
+          .comment-content {
+            position: relative;
+            padding: 20px 55px 30px 45px;
+          }
+
+          .comment-reply-link, .comment-reply-login {
+            position: absolute;
+            bottom: 3px;
+            right: 12px;
+            font-size: 12px;
+            text-transform: uppercase;
+            display: block;
+          }
+
+          &:hover {
+            .comment-meta {
+              .comment-author img {
+                @include gal-transform(rotate(720deg));
+                @include gal-transition($duration: 0.8s, $timing-function: ease);
+                border-radius: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .comment-nav {
+        margin-top: 20px;
+        .pagination-gal {
+          margin: 0;
+          border-radius: 4px;
+        }
+        .page-numbers {
+          color: $comments-pagination-color;
+          background-color: transparent;
+          display: inline-block;
+          border-radius: 4px;
+          border: 2px solid $comments-pagination-bd-color;
+          border-image: initial;
+          @include gal-transition($duration: 0.3s, $timing-function: ease);
+          margin: 0 0 10px 10px;
+          padding: 5px 10px;
+          &.dots {
+            border-width: initial;
+            border-style: none;
+            border-color: initial;
+            border-image: initial;
+          }
+          &.current {
+            color: #fff;
+            background-color: $comments-pagination-hover-bg-color;
+            cursor: not-allowed;
+          }
+          &:hover {
+            color: #fff;
+            background-color: $comments-pagination-hover-bg-color;
+            border: 2px solid $comments-pagination-hover-bd-color;
+            border-image: initial;
+            @include gal-transition($duration: 0.3s, $timing-function: ease);
+          }
+        }
+      }
+    }
+
+    // 评论框编辑
+    .gitment-editor-container {
+      padding-left: 0;
+      margin: 20px 0;
+      .comment-reply-title {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        overflow: auto;
+        color: #3a87ad;
+        background-color: $comments-reply-title-bg-color;
+        margin: 10px auto;
+        text-align: center;
+        font-size: 14px;
+      }
+      .gitment-editor-submit {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        width: 100%;
+        color: $red;
+        background-color: transparent;
+        border: 2px solid $red;
+        padding: 10px 25px;
+        text-align: center;
+        @include gal-transition($duration: .3s, $timing-function: ease);
+        &:hover {
+          color: #fff;
+          background-color: $red;
+          border: 2px solid $red;
+          text-decoration: none;
+          @include gal-transition($duration: .3s, $timing-function: ease);
+        }
+      }
+      .gitment-editor-write-field {
+        textarea {
+          margin: 0;
+          margin-bottom: 10px;
+          padding: 10px 15px;
+          width: 100%;
+          border-radius: 4px;
+          background-color: transparent;
+          border: 2px solid $comments-textarea-bd-color;
+          &:focus {
+            background-color: $comments-textarea-focus-bg-color;
+            outline: 0;
+            @include gal-transition($duration: .3s, $timing-function: ease);
+            border: 2px solid $red;
+          }
+        }
+      }
+    }
+
+    // 评论框底部
+    .gitment-footer-container {
+      text-align: center;
+      a {
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+#smilelink {
+  display: inline-block;
+  margin-bottom: 10px;
+  cursor: url(../imgs/mouse1.cur), url(../imgs/mouse1.cur), auto;
+}
+
+#smilelink img {
+  opacity: 0.7;
+  @include gal-transform(scale(1) rotate(0deg));
+  cursor: url(../imgs/mouse2.cur), url(../imgs/mouse2.cur), auto;
+  @include gal-transition($property: -webkit-transform, $duration: 0.2s, $timing-function: ease-out);
+  &:hover {
+    opacity: 1;
+    z-index: 1000;
+    @include gal-transform(scale(1.5) rotate(1deg));
+  }
+}
