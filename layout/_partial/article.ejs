@@ -96,15 +96,10 @@
 <% if(theme.use_comment === true) { %>
 <div id="comments-template"></div>
 <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
-    window.commentConfig = {
-      owner: '<%= theme.comment.gitment.owner %>',
-      repo: '<%= theme.comment.gitment.repo %>',
-      client_id: '<%= theme.comment.gitment.oauth.client_id %>',
-      client_secret: '<%= theme.comment.gitment.oauth.client_secret %>',
-      redirect_uri: '<%= theme.comment.gitment.oauth.redirect_uri %>'
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '<%= item.title %>'
     }
 </script>
-<%- js('js/comment/gitment.js') %>
 <% } %>
