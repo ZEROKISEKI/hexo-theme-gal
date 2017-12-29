@@ -51,7 +51,7 @@ default_preview:
 
 # 侧边栏
 sidebar:
-  recent_comments: false  # 最新评论, 默认关闭, 可能需要自己进行模板配置
+  recent_comments: true   # 最新评论, 默认关闭, 可能需要自己进行模板配置
   hot_posts: true         # 最热文章, 如果配置了下面的文章统计就可以使用该侧边栏, 否则设置为false
   recent_posts: true      # 最新文章, 默认开启
   random_posts: true      # 随机文章, 默认开启
