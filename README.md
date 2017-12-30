@@ -18,8 +18,9 @@
 
 主题示例博客[sora3.coding.me](http://sora3.coding.me)
 
-我的blog[myau.moe](http://myau.moe)(还没更新)
+我的blog[myau.moe](http://myau.moe)
 
+到时写个配置说明在这个项目的wiki那一栏里.
     
 # 更新 2017.12.29
 
