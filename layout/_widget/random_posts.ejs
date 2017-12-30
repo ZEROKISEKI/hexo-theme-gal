@@ -9,7 +9,13 @@
         <ul class="list-group list-group-flush">
             <%
                var randResults = []
-               for(let i = 0; i < 10; i++) {
+               var randCount
+               if(site.posts.length >= 10) {
+               	randCount = 10
+               } else {
+               	randCount = site.posts.length
+               }
+               for(let i = 0; i < randCount; i++) {
                	let randNum = Math.floor(Math.random() * site.posts.length)
                 while(randResults.indexOf(randNum) !== -1) {
                		randNum = Math.floor(Math.random() * site.posts.length)
