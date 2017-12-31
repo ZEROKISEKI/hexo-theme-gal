@@ -89,14 +89,14 @@ use_issue: true
 # 必填项
 slide_background:
   # 默认为false, 即采用路径图片
-  use_url: true
+  use_url: false
   # use_url: true情况下, 采用七牛外链空间的形式, 下面三个参数组合指向: http://ouo1ro65u.bkt.clouddn.com/background(1~10).png
   # prefix: http://ouo1ro65u.bkt.clouddn.com/background   七牛对象存储空间外链主机地址和图片名称前缀
   # ext: png          图片的后缀格式, 要求可供选择的图片都是统一后缀
   # max_count: 10     可供选择的图片数量, 背景图会从这里随机抽取6张图
 
   # use_url: false情况下, 采用本地博客图片路径, 下面三个参数组合指向: source/imgs/slide/background(1~10).jpg
-  prefix: imgs/slide/background
+  prefix: slide/background
   ext: jpg
   mac_count: 6
 
