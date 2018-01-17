@@ -471,6 +471,32 @@ button.close {
     font-size: 10px;
   }
 
+  .highlight {
+    overflow: auto;
+    padding: 10px;
+    background-color: $gray;
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 10px;
+      background-color: $gray2;
+    }
+
+    ::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: $gray2;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: $gray2;
+    }
+    table {
+      pre {
+        border: 0;
+      }
+    }
+  }
+
   ul, ol {
     border-left: 5px solid #eeeeee;
     border-color: rgb(0, 191, 255);
