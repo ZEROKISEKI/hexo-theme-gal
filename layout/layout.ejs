@@ -81,6 +81,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
+      window.commentConfig.id = '<%= page.date %>'
       window.commentConfig.owner = '<%= theme.comment.gitment.owner %>'
       window.commentConfig.repo = '<%= theme.comment.gitment.repo %>'
       window.commentConfig.client_id = '<%= theme.comment.gitment.oauth.client_id %>'
@@ -88,6 +89,7 @@
       window.commentConfig.redirect_uri = '<%= theme.comment.gitment.oauth.redirect_uri %>'
     } else {
       window.commentConfig = {
+      	id: '<%= page.date %>',
         owner: '<%= theme.comment.gitment.owner %>',
         repo: '<%= theme.comment.gitment.repo %>',
         client_id: '<%= theme.comment.gitment.oauth.client_id %>',
