@@ -12,7 +12,7 @@
 }
 
 .panel ul.list-group {
-  max-height: 500px;
+  // max-height: 500px;
   width: 100%;
   @include gal-transition($duration: 0.3s, $timing-function: ease);
 }
