@@ -63,7 +63,7 @@
     window.slideConfig = {
       prefix: '<%- theme.slide_background.use_url ? theme.slide_background.prefix : url_for(`imgs/${theme.slide_background.prefix}`) %>',
       ext: '<%- theme.slide_background.ext %>',
-      maxCount: '<%- theme.slide_background.mac_count %>'
+      maxCount: '<%- theme.slide_background.max_count %>'
     }
 </script>
 <%- js(['js/hs.js', 'js/blog.js']) %>

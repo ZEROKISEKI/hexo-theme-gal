@@ -10,6 +10,10 @@ xs_bg_image: xsbg.gif
 # 也可以填http:// OR https:// url地址
 author_image: avatar.jpg
 
+# 程序员模式, 适合于用该程序的爱好写技术文章的人员, 默认不开启
+# 选择开启后将会改变article-excerpt, article-content等的显示
+programmer_mode: false
+
 # 导航菜单
 menu:
   # index
@@ -98,7 +102,7 @@ slide_background:
   # use_url: false情况下, 采用本地博客图片路径, 下面三个参数组合指向: source/imgs/slide/background(1~10).jpg
   prefix: slide/background
   ext: jpg
-  mac_count: 6
+  max_count: 6
 
 
 # 是否开启欧尼酱功能
