@@ -28,6 +28,7 @@
     // 获取每页的页码数
     var pageSize = '<%= config.per_page %>'
     var useLeancloud = '<%= theme.leancloud.appid && theme.leancloud.appkey %>'
+    var useComment = ('<%= theme.use_comment %>' === 'true')
     $.getJSON('<%- url_for('content.json') %>', function (json) {
       $('#search-breadcrumb').append(`搜索'${s}'的结果`)
       var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
@@ -68,11 +69,11 @@
                                         </h1>
                                     </div>
                                     <div class="tag-article">
-                                        ${ useLeancloud ? '<span class="label label-gal"><i class="fa fa-eye"></i></span>' : ''}
-                                        <span class="label label-gal">
-                                            <i class="fa fa-comments"></i>
-                                            <a href="${path}#comments">739</a>
-                                        </span>
+                                    ${ article.tags.length > 0 ? `<span class="label label-gal"><i class="fa fa-tags"></i>${
+                                    	article.tags.map(function (tag) {
+						                 return `<a href=${ tag.permalink }>${ tag.name }</a>`
+                                    	}).join(', ') }</span>` : '' }
+                                    ${ useLeancloud ? '<span class="label label-gal"><i class="fa fa-eye"></i></span>' : ''}
                                     </div>
                                     <div class="alert alert-gal article-body content-article">
                                          <div class="item">
@@ -92,6 +93,9 @@
       if (useLeancloud) {
         var Counter = AV.Object.extend('Counter')
         showPostsTime(Counter)
+      }
+      if (useComment) {
+      	showCommentCount()
       }
     }
 
@@ -134,7 +138,6 @@
       }
     }
 
-    // 很挫地定义了多一次, 到时再改了...
     function showPostsTime(Counter) {
       var entries = []
       var excerpts = $('.article-excerpt')
@@ -162,6 +165,35 @@
       }).then(function (error) {
         console.log('Error:' + error.code + ' ' + error.message)
       })
+    }
+
+    function showCommentCount() {
+      const excerpts = $('.article-excerpt')
+      const owner = window.commentConfig.owner
+      const repo = window.commentConfig.repo
+      $.ajax({
+        url: "https://api.github.com/repos/" + owner + '/' + repo + '/issues',
+        data: {
+          creator: owner
+        }
+      }).done(function(issues) {
+        excerpts.each(function () {
+          const that = $(this)
+          that.find('h1 > a > span').each(function () {
+            const title = $(this).text()
+            const tags = that.find('div.tag-article')
+            const issue = issues.filter(function (issue) {
+              return issue.title === title
+            })
+            const comments = issue.length > 0 ? issue[0].comments : 0
+            tags.each(function () {
+              $(this).append('<span class="label label-gal"><i class="fa fa-comments"></i><a> ' + comments + '</a></span>')
+            })
+          })
+        })
+      }).fail(function (error) {
+        console.log(error)
+      });
     }
 
 </script>

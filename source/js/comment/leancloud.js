@@ -132,7 +132,7 @@
 		// 进入文章页面(包括自定义文章)
 		if ($('#article').length === 1) {
 			addCount(Counter)
-		} else if ($('.article-excerpt').length >= 1) {
+		} else if ($('.article-excerpt').length >= 1 && window.location.pathname !== '/search/index.html') {
 			showPostsTime(Counter)
 		}
 
