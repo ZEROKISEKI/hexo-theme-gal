@@ -90,6 +90,11 @@
         path: true
         date: true
         excerpt: true
+        tags: [{
+          name: tag.name,
+          slug: tag.slug,
+          permalink: tag.permalink
+        }]
         preview: true
     
     接着, 进行下面的步骤:
