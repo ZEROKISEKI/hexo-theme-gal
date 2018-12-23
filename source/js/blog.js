@@ -66,22 +66,35 @@
 	var friendLinksTab = $('#friend-links-tab')
 	var linksTab = $('#links-tab')
 
-	friendLinksTab.tab('show')
+	if (tagsTab) {
+		tagsTab.tab('show')
+	} else if (friendLinksTab) {
+		friendLinksTab.tab('show')
+	} else if (linksTab) {
+		linksTab.tab('show')
+	}
 
-	tagsTab.on('click', function (e) {
-		e.preventDefault()
-		$(this).tab('show')
-	})
 
-	friendLinksTab.on('click', function (e) {
-		e.preventDefault()
-		$(this).tab('show')
-	})
+	if (tagsTab) {
+		tagsTab.on('click', function (e) {
+			e.preventDefault()
+			$(this).tab('show')
+		})
+	}
 
-	linksTab.on('click', function (e) {
-		e.preventDefault()
-		$(this).tab('show')
-	})
+	if (friendLinksTab) {
+		friendLinksTab.on('click', function (e) {
+			e.preventDefault()
+			$(this).tab('show')
+		})
+	}
+
+	if (linksTab) {
+		linksTab.on('click', function (e) {
+			e.preventDefault()
+			$(this).tab('show')
+		})
+	}
 
 	// ------- 处理返回顶端 -------------
 

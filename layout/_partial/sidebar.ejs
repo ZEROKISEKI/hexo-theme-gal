@@ -14,24 +14,37 @@
     <% if(theme.sidebar.random_posts) { %>
     <%- partial('_widget/random_posts') %>
     <% } %>
-    <% if(theme.sidebar.tags === true || theme.sidebar.categories === true || theme.sidebar.friend_links === true) { %>
+    <% if(theme.sidebar.tags === true || theme.sidebar.friend_links === true || theme.sidebar.links === true) { %>
     <aside id="gal-sets">
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
-                <li class="<%= theme.nav_pill_init_active === 'tags' ? 'active' : '' %>">
+
+                <% if(theme.sidebar.tags === true) { %>
+                <li>
                     <a href="<%- url_for(path) %>#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
-                <li class="<%= theme.nav_pill_init_active === 'friend_links' ? 'active' : '' %>">
+                <% } %>
+                <% if(theme.sidebar.friend_links === true) { %>
+                <li>
                     <a href="<%- url_for(path) %>#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
-                <li class="<%= theme.nav_pill_init_active === 'links' ? 'active' : '' %>">
+                <% } %>
+                <% if(theme.sidebar.links === true) { %>
+                <li>
                     <a href="<%- url_for(path) %>#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
+                <% } %>
             </ul>
             <div class="tab-content">
+                <% if (theme.sidebar.tags === true) { %>
                 <%- partial('_widget/hot_tags') %>
+                <% } %>
+                <% if (theme.sidebar.friend_links === true) { %>
                 <%- partial('_widget/friend_links') %>
+                <% } %>
+                <% if (theme.sidebar.links === true) { %>
                 <%- partial('_widget/links') %>
+                <% } %>
             </div>
         </div>
     </aside>
