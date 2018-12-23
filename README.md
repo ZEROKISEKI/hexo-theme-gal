@@ -12,14 +12,12 @@
 
 下面的**配置说明**一定要先做好, 因为包含了主题的依赖(反正很重要就是了)
 
-主题示例博客:[sora3.coding.me](http://sora3.coding.me)
-
-我的blog:[myau.moe](http://myau.moe)
+主题示例博客:[myau.moe](https://myau.moe)
     
 # 更新: 2018/3/4
 
 有个小小的建议, 这个主体可能需要配置比较多的图片, 图片比如好几百kb甚至上m的加载会慢, 这点可以用一些网站进行图片压缩, 然后把图片放在一些对象存储空间上(比如七牛的对象存储空间),
-比如我的博客[myau.moe](http://myau.moe)就是这样的, 所以加载会快些, 关于图片压缩, 可以用下面几个网站:
+比如我的博客[myau.moe](https://myau.moe)就是这样的, 所以加载会快些, 关于图片压缩, 可以用下面几个网站:
 
 ### [TinyPng](https://tinypng.com/)
 ### [CloudConvert](https://cloudconvert.com/)
@@ -106,6 +104,8 @@
 ## 主题的配置说明:
 
 主题配置说明在[wiki](https://github.com/ZEROKISEKI/hexo-theme-gal/wiki/%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E)
+
+更新：新开了一个issue，主题的一些新的配置说明将会写在这个issue上。 [issue #46](https://github.com/ZEROKISEKI/hexo-theme-gal/issues/46)
 
 ## 使用建议:
 

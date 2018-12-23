@@ -43,7 +43,7 @@
                         <img src="<%- item.preview ? item.preview : (/https?:\/\//.test(theme.default_preview[num]) ? theme.default_preview[num] : url_for(`imgs/preview/${theme.default_preview[num]}`)) %>" alt="<%= item.title %>">
                     </div>
                     <div class="info">
-                        <%- item.excerpt %>
+                        <%- item.preview_text ? markdown(item.preview_text) : item.excerpt %>
                     </div>
                 </a>
             </div>
