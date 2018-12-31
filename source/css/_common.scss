@@ -473,27 +473,36 @@ button.close {
 
   .highlight {
     overflow: auto;
-    padding: 10px;
-    background-color: $gray;
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 10px;
+    padding: 0;
+    border-radius: 4px;
+    margin-top: 10px;
+    line-height: 1.6;
+    font-size: 13px;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      // width: 6px;
+      // height: 10px;
       background-color: $gray2;
     }
 
-    ::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track {
       border-radius: 10px;
       background-color: $gray2;
     }
 
-    ::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb {
       border-radius: 10px;
       background-color: $gray2;
     }
+
     table {
       width: 100%;
       pre {
         border: 0;
+        border-radius: 0;
+        line-height: 1.6;
+        font-size: 13px;
       }
     }
   }
@@ -545,3 +554,5 @@ button.close {
     // font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   }
 }
+
+@import "highlight";

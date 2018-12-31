@@ -89,6 +89,15 @@ links:
 # 如果不用公告, 请设置此项为false
 use_issue: true
 
+# 指定代码高亮风格
+# 目前支持以下选择
+# github
+# railscasts
+# monokai_sublime
+# atom-one-dark
+# darcula
+highlight_theme: atom-one-dark
+
 # 背景图功能
 # 必填项
 slide_background:
@@ -99,14 +108,14 @@ slide_background:
   # ext: png          图片的后缀格式, 要求可供选择的图片都是统一后缀
   # max_count: 10     可供选择的图片数量, 背景图会从这里随机抽取6张图
 
-  # use_url: false情况下, 采用本地博客图片路径, 下面三个参数组合指向: source/imgs/slide/background(1~10).jpg
+  # use_url: false情况下, 采用本地博客图片路径, 下面三个参数组合指向: source/imgs/slide/background(1~6).jpg
   prefix: slide/background
   ext: jpg
   max_count: 6
 
 
 # 是否开启欧尼酱功能
-open_oni: true
+open_oni: false
 # 欧尼酱功能设置, 前提为open_oni: true
 oni_setting:
   # 限三项, 可以自己配置链接(一般是上面的menu或者自己的page)
@@ -131,8 +140,8 @@ power_mode:
 # 获取appId和appKey方法直接百度 or google(或者看这篇http://crescentmoon.info/2014/12/11/popular-widget/)
 # 注意一旦生成新的文章就不要随便改名了
 leancloud:
-  appid:  # your appId
-  appkey: # your appKey
+  appid:  # yourappId
+  appkey: # your appKeym
 
 # 评论系统, 目前只支持gitment(为了自定义样式)
 # 关于gitment如何配置看这篇 https://imsun.net/posts/gitment-introduction/

@@ -1,0 +1,431 @@
+$highlight_theme: hexo-theme-config('highlight_theme');
+
+@if $highlight_theme == github {
+  .highlight {
+    color: #333;
+    background: #f8f8f8;
+
+    pre {
+      color: #333;
+      background: #f8f8f8;
+    }
+
+    .comment,
+    .quote {
+      color: #998;
+      font-style: italic;
+    }
+
+    .keyword,
+    .selector-tag,
+    .subst {
+      color: #333;
+      font-weight: bold;
+    }
+
+    .number,
+    .literal,
+    .variable,
+    .template-variable,
+    .tag .attr {
+      color: #008080;
+    }
+
+    .string,
+    .doctag {
+      color: #d14;
+    }
+
+    .title,
+    .section,
+    .selector-id {
+      color: #900;
+      font-weight: bold;
+    }
+
+    .subst {
+      font-weight: normal;
+    }
+
+    .type,
+    .class .title {
+      color: #458;
+      font-weight: bold;
+    }
+
+    .tag,
+    .name,
+    .attribute {
+      color: #000080;
+      font-weight: normal;
+    }
+
+    .regexp,
+    .link {
+      color: #009926;
+    }
+
+    .symbol,
+    .bullet {
+      color: #990073;
+    }
+
+    .built_in,
+    .builtin-name {
+      color: #0086b3;
+    }
+
+    .meta {
+      color: #999;
+      font-weight: bold;
+    }
+
+    .deletion {
+      background: #fdd;
+    }
+
+    .addition {
+      background: #dfd;
+    }
+
+    .emphasis {
+      font-style: italic;
+    }
+
+    .strong {
+      font-weight: bold;
+    }
+  }
+} @else if $highlight_theme == darcula {
+  .highlight {
+    background: #2b2b2b;
+    color: #bababa;
+
+    pre {
+      background: #2b2b2b;
+      color: #bababa;
+    }
+
+    .strong,
+    .emphasis {
+      color: #a8a8a2;
+    }
+
+    .bullet,
+    .quote,
+    .link,
+    .number,
+    .regexp,
+    .literal {
+      color: #6896ba;
+    }
+
+    .code,
+    .selector-class {
+      color: #a6e22e;
+    }
+
+    .emphasis {
+      font-style: italic;
+    }
+
+    .keyword,
+    .selector-tag,
+    .section,
+    .attribute,
+    .name,
+    .variable {
+      color: #cb7832;
+    }
+
+    .params {
+      color: #b9b9b9;
+    }
+
+    .string {
+      color: #6a8759;
+    }
+
+    .-subst,
+    .type,
+    .built_in,
+    .builtin-name,
+    .symbol,
+    .selector-id,
+    .selector-attr,
+    .selector-pseudo,
+    .template-tag,
+    .template-variable,
+    .addition {
+      color: #e0c46c;
+    }
+
+    .comment,
+    .deletion,
+    .meta {
+      color: #7f7f7f;
+    }
+  }
+} @else if $highlight_theme == railscasts {
+  .highlight {
+    background: #232323;
+    color: #e6e1dc;
+
+    pre {
+      background: #232323;
+      color: #e6e1dc;
+    }
+
+    .comment,
+    .quote {
+      color: #bc9458;
+      font-style: italic;
+    }
+
+    .keyword,
+    .selector-tag {
+      color: #c26230;
+    }
+
+    .string,
+    .number,
+    .regexp,
+    .variable,
+    .template-variable {
+      color: #a5c261;
+    }
+
+    .subst {
+      color: #519f50;
+    }
+
+    .tag,
+    .name {
+      color: #e8bf6a;
+    }
+
+    .type {
+      color: #da4939;
+    }
+
+
+    .symbol,
+    .bullet,
+    .built_in,
+    .builtin-name,
+    .attr,
+    .link {
+      color: #6d9cbe;
+    }
+
+    .params {
+      color: #d0d0ff;
+    }
+
+    .attribute {
+      color: #cda869;
+    }
+
+    .meta {
+      color: #9b859d;
+    }
+
+    .title,
+    .section {
+      color: #ffc66d;
+    }
+
+    .addition {
+      background-color: #144212;
+      color: #e6e1dc;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .deletion {
+      background-color: #600;
+      color: #e6e1dc;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .selector-class {
+      color: #9b703f;
+    }
+
+    .selector-id {
+      color: #8b98ab;
+    }
+
+    .emphasis {
+      font-style: italic;
+    }
+
+    .strong {
+      font-weight: bold;
+    }
+
+    .link {
+      text-decoration: underline;
+    }
+  }
+} @else if $highlight_theme == monokai_sublime {
+  .highlight {
+    background: #23241f;
+    color: #f8f8f2;
+
+    pre {
+      background: #23241f;
+      color: #f8f8f2;
+    }
+
+    .tag,
+    .subst {
+      color: #f8f8f2;
+    }
+
+    .strong,
+    .emphasis {
+      color: #a8a8a2;
+    }
+
+    .bullet,
+    .quote,
+    .number,
+    .regexp,
+    .literal,
+    .link {
+      color: #ae81ff;
+    }
+
+    .code,
+    .title,
+    .section,
+    .selector-class {
+      color: #a6e22e;
+    }
+
+    .strong {
+      font-weight: bold;
+    }
+
+    .emphasis {
+      font-style: italic;
+    }
+
+    .keyword,
+    .selector-tag,
+    .name,
+    .attr {
+      color: #f92672;
+    }
+
+    .symbol,
+    .attribute {
+      color: #66d9ef;
+    }
+
+    .params,
+    .class .title {
+      color: #f8f8f2;
+    }
+
+    .string,
+    .type,
+    .built_in,
+    .builtin-name,
+    .selector-id,
+    .selector-attr,
+    .selector-pseudo,
+    .addition,
+    .variable,
+    .template-variable {
+      color: #e6db74;
+    }
+
+    .comment,
+    .deletion,
+    .meta {
+      color: #75715e;
+    }
+  }
+} @else if $highlight_theme == atom-one-dark {
+  .highlight {
+    color: #abb2bf;
+    background: #282c34;
+
+    pre {
+      color: #abb2bf;
+      background: #282c34;
+    }
+
+    .comment,
+    .quote {
+      color: #5c6370;
+      font-style: italic;
+    }
+
+    .doctag,
+    .keyword,
+    .formula {
+      color: #c678dd;
+    }
+
+    .section,
+    .name,
+    .selector-tag,
+    .deletion,
+    .subst {
+      color: #e06c75;
+    }
+
+    .literal {
+      color: #56b6c2;
+    }
+
+    .string,
+    .regexp,
+    .addition,
+    .attribute,
+    .meta-string {
+      color: #98c379;
+    }
+
+    .built_in,
+    .class .title {
+      color: #e6c07b;
+    }
+
+    .attr,
+    .variable,
+    .template-variable,
+    .type,
+    .selector-class,
+    .elector-attr,
+    .selector-pseudo,
+    .number {
+      color: #d19a66;
+    }
+
+    .symbol,
+    .bullet,
+    .link,
+    .meta,
+    .selector-id,
+    .title {
+      color: #61aeee;
+    }
+
+    .emphasis {
+      font-style: italic;
+    }
+
+    .strong {
+      font-weight: bold;
+    }
+
+    .link {
+      text-decoration: underline;
+    }
+  }
+}
