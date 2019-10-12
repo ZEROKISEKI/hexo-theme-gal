@@ -22,3 +22,7 @@
      <% }) %>
 </div>
 <%- partial('_partial/pagination', { page: page }) %>
+<!-- 加上这段代码原因： gitment在首页加载时, 如果找不到对应的控件会报错，此处加上，同时设置为none，防止报错 -->   
+<% if(theme.use_comment === true) { %>  
+    <div id="comments-template" style="display:none"></div> 
+<% } %>

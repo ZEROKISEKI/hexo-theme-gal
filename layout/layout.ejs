@@ -77,7 +77,7 @@
 </script>
 <%- js('js/comment/leancloud.js') %>
 <% } %>
-<% if(theme.use_comment === true) { %>
+<% if( theme.use_comment === true && (is_home() || page.comments === true )){ %>
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {

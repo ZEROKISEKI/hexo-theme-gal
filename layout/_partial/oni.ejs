@@ -10,8 +10,11 @@
             <a href="<%- url_for(theme.oni_setting[0].url) %>" class="menuItem" style="left: 80.3109%; top: 67.5%;"><%= theme.oni_setting[0].title %></a>
             <a href="<%- url_for(theme.oni_setting[1].url) %>" class="menuItem" style="left: 50%; top: 85%;"><%= theme.oni_setting[1].title %></a>
             <a href="<%- url_for(theme.oni_setting[2].url) %>" class="menuItem" style="left: 19.6891%; top: 67.5%;"><%= theme.oni_setting[2].title %></a>
-            <% if(page.prev && page.prev_link) { %>
-            <a href="<%- url_for(page.prev_link) %>" class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+
+            <% if(page.current > 2) { %>
+            <a href="<%- url_for(`page/${page.current-1}`) %>" class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            <% } else if (page.current == 2)  { %>
+            <a href="/" class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
             <% } else { %>
             <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
             <% } %>
