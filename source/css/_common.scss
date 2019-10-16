@@ -553,32 +553,6 @@ button.close {
     line-height: 1.5;
     // font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   }
-
-  // markdonw 表格渲染
-  > table {
-    display: table;
-    overflow: auto;
-    border: 1px solid #dfe2e5;
-    margin: 10px;
-    border-collapse:collapse;
-    th, td {
-      padding: 6px 13px;
-      border-right: 1px solid #dfe2e5;
-      font-size: 15px;
-    }
-
-    td {
-      border-top: 1px solid #dfe2e5;
-      font-size: 13px;
-    }
-
-    tr th:last-child, tr td:last-child {
-      border-right: none;
-    }
-
-    tr:nth-child(even) td {
-      background: rgba(243, 244, 245, 0.8);
-    }
 }
 
 @import "highlight";
