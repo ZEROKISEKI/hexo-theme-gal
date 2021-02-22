@@ -162,3 +162,7 @@ node_sass:
   outputStyle: compressed
   precision: 5
   sourceComments: false
+
+# 是否添加live2d
+# 项目地址: https://github.com/stevenjoezhang/live2d-widget
+use_l2d: false

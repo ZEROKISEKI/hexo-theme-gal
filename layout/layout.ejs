@@ -18,6 +18,9 @@
         </div>
     </div>
     <%- partial('_partial/footer') %>
+    <% if(theme.use_l2d === true) { %>
+    <script src="/live2d/autoload.js"></script>
+    <% } %>
 </body>
 <%- js(['js/activate-power-mode.js']) %>
 <script>
