@@ -154,6 +154,12 @@ comment:
         client_id:  # 必填项
         client_secret: # 必填项
         redirect_uri: # 可以填也可以不填
+  # 是否改成gitalk, gitment的必填项也是要填的
+  gitalk:
+    change_to_gitalk: false
+    # 出现403错误, 增加proxy, default: https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token
+    # 具体讨论: https://github.com/gitalk/gitalk/issues/429
+    proxy: https://netnr-proxy.cloudno.de/https://github.com/login/oauth/access_token
 
 # 是否使用评论系统
 use_comment: false
