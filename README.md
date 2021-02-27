@@ -22,3 +22,6 @@ use_l2d: true
 2. gitment改用gitalk
 
 [评论系统配置说明](https://github.com/fnsflm/hexo-theme-gal/wiki/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E)
+
+3. 修改代码行数槽过长的问题
+![022](https://user-images.githubusercontent.com/49244492/109394345-7d8b4580-7961-11eb-9b83-499dd8ce726c.jpg)
