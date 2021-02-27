@@ -4,6 +4,7 @@
 更新:
 1. 添加live2d
 基于项目: https://github.com/stevenjoezhang/live2d-widget
+
 在主题配置`_config.yml`设置为true即可
 ```
 use_l2d: true
