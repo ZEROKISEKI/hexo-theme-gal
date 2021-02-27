@@ -1,8 +1,8 @@
 # hexo-theme-gal
 
-在 https://github.com/ZEROKISEKI/hexo-theme-gal 上增强一些功能, 原项目是[忧郁的弟弟](https://www.kkgal.com/)网站主题WordPress的hexo移植版本
+在 [ZEROKISEKI/hexo-theme-gal](https://github.com/ZEROKISEKI/hexo-theme-gal) 上增强一些功能, 原项目是[忧郁的弟弟](https://www.kkgal.com/)网站主题WordPress的hexo移植版本
 
-更新:
+** 更新: **
 
 1. 添加live2d
 
