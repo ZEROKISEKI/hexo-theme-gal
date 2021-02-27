@@ -4,7 +4,7 @@
 
 详细说明和使用方法见[wiki](https://github.com/fnsflm/hexo-theme-gal/wiki)
 
-**更新: **
+**更新:**
 
 1. 添加live2d
 
