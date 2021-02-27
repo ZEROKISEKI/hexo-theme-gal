@@ -4,6 +4,8 @@
 
 详细说明和使用方法见[wiki](https://github.com/fnsflm/hexo-theme-gal/wiki)
 
+个人站点: https://fnsflm.xyz
+
 **更新:**
 
 1. 添加live2d
