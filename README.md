@@ -5,6 +5,8 @@
 详细说明和使用方法见[wiki](https://github.com/fnsflm/hexo-theme-gal/wiki)
 
 个人站点: https://fnsflm.xyz
+![026](https://user-images.githubusercontent.com/49244492/110194893-fc0e4880-7e75-11eb-87b3-d98943c2216f.jpg)
+
 
 **更新:**
 
