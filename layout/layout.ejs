@@ -18,6 +18,9 @@
         </div>
     </div>
     <%- partial('_partial/footer') %>
+    <% if(theme.use_l2d === true) { %>
+    <script src="/live2d/autoload.js"></script>
+    <% } %>
 </body>
 <%- js(['js/activate-power-mode.js']) %>
 <script>
@@ -78,7 +81,6 @@
 <%- js('js/comment/leancloud.js') %>
 <% } %>
 <% if( theme.use_comment === true && (is_home() || page.comments === true )){ %>
-<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
       window.commentConfig.id = '<%= page.date %>'
@@ -87,6 +89,7 @@
       window.commentConfig.client_id = '<%= theme.comment.gitment.oauth.client_id %>'
       window.commentConfig.client_secret = '<%= theme.comment.gitment.oauth.client_secret %>'
       window.commentConfig.redirect_uri = '<%= theme.comment.gitment.oauth.redirect_uri %>'
+      window.commentConfig.proxy = '<%= theme.comment.gitalk.proxy %>'
     } else {
       window.commentConfig = {
       	id: '<%= page.date %>',
@@ -94,10 +97,17 @@
         repo: '<%= theme.comment.gitment.repo %>',
         client_id: '<%= theme.comment.gitment.oauth.client_id %>',
         client_secret: '<%= theme.comment.gitment.oauth.client_secret %>',
-        redirect_uri: '<%= theme.comment.gitment.oauth.redirect_uri %>'
+        redirect_uri: '<%= theme.comment.gitment.oauth.redirect_uri %>',
+        proxy: '<%= theme.comment.gitalk.proxy %>'
       }
     }
 </script>
-<%- js('js/comment/gitment.js') %>
+  <% if(theme.comment.gitalk.change_to_gitalk === false) { %>
+    <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+    <%- js('js/comment/gitment.js') %>
+  <% } else {%>
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <%- js('js/comment/gitalk.js') %>
+  <% } %>
 <% } %>
 </html>
