@@ -46,6 +46,13 @@
         appKey: '<%= theme.leancloud.appkey %>'
       })
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= theme.google_analytics %>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '<%= theme.google_analytics %>');
+    </script>
     <% } %>
     <!--<script type="text/javascript">
       if (document.images) {
